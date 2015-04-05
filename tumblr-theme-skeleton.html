@@ -77,8 +77,11 @@
   <body>
     <section id="page">
       <header id="page-header">
-        {block:ShowHeaderImage}{/block:ShowHeaderImage}
-        {block:HideHeaderImage}{/block:HideHeaderImage}
+        {block:ShowHeaderImage}
+          <div class="header_image"><a href="/"><img src="{HeaderImage}" alt=""/></a></div>
+        {/block:ShowHeaderImage}
+        {block:HideHeaderImage}
+        {/block:HideHeaderImage}
 
         {block:ShowAvatar}{/block:ShowAvatar}
         {block:HideAvatar}{/block:HideAvatar}
