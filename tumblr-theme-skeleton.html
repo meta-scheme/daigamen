@@ -15,6 +15,22 @@
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
     <style>
+      html, body, * {
+        writing-mode:
+          horizontal-tb;
+        -ms-writing-mode:
+          lr-tb;
+        -webkit-writing-mode:
+          horizontal-tb;
+        -epub-writing-mode:
+          horizontal-tb;
+        text-orientation:
+          mixed;
+        -webkit-text-orientation:
+          mixed;
+        direction:
+          ltr;
+      }
       body {
         color     : {color:Foreground Color};
         background: {color:Background Color};
@@ -42,6 +58,7 @@
         display:inline-block;
         margin:0;
         padding:0;
+        text-align:center;
         vertical-align:bottom;
       }
       iframe#youtube_iframe {
