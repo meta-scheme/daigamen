@@ -78,7 +78,7 @@
       img {
         max-width:100%;
       }
-      form.search {
+      form#search {
         margin-top:0.5rem;
       }
       {CustomCSS}
@@ -163,7 +163,7 @@
           {/block:DayPagination}
         {/block:DayPage}
 
-        <form class="search" action="/search" method="get">
+        <form id="search" action="/search" method="get">
           <input type="text" name="q" value="{SearchQuery}"/>
           <input type="submit" value="{lang:Search}"/>
         </form>
