@@ -297,7 +297,7 @@
 
             {block:Photo}
               {LinkOpenTag}
-                <img src="{PhotoURL-250}" width="{PhotoWidth-250}" height="{PhotoHeight-250} alt="{PhotoAlt}"/>
+                <img class="photo-content" src="{PhotoURL-250}" alt="{PhotoAlt}"/>
               {LinkCloseTag}
               {block:Caption}
                 <div class="caption">{Caption}</div>
@@ -306,7 +306,7 @@
 
             {block:Photoset}
               {block:Photos}
-                <img src="{PhotoURL-250}" width="{PhotoWidth-250}" height="{PhotoHeight-250}" alt="{PhotoAlt}"/>
+                <img class="photo-content" src="{PhotoURL-250}" alt="{PhotoAlt}"/>
                 {block:Caption}
                   <div class="caption">{Caption}</div>
                 {/block:Caption}
@@ -413,8 +413,7 @@
                   <a href="{SourceURL}">
                   {lang:Source}:
                   {block:SourceLogo}
-                      <img src="{BlackLogoURL}" width="{LogoWidth}"
-                      height="{LogoHeight}" alt="{SourceTitle}" />
+                      <img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
                   {/block:SourceLogo}
                   {block:NoSourceLogo}
                       {SourceLink}
@@ -444,4 +443,3 @@
     </section>
   </body>
 </html>
-
