@@ -1,2 +1,2 @@
 # tumblr-theme-skeleton
-Tumblrテーマスケルトン
+Tumblrテーマ「Tumblrテーマスケルトン」
