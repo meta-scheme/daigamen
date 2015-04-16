@@ -1,2 +1,2 @@
-# tumblr-theme-skeleton
-Tumblrテーマ「Tumblrテーマスケルトン」
+# daigamen
+Tumblrテーマ「大画面」
