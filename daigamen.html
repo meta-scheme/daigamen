@@ -3,37 +3,49 @@
 <html lang="ja">
   <head>
     {MobileAppHeaders}
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
-    {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
-    <meta name="image:Background Image" content=""/>
-    <meta name="color:Custom Title Color"           content="#808080"/>
-    <meta name="color:Custom Accent Color"          content="#52ccc4"/>
-    <meta name="color:Body Foreground Color"        content="#ffffff"/>
-    <meta name="color:Body Background Color"        content="#000000"/>
-    <meta name="color:Page Header Foreground Color" content="#ffffff"/>
-    <meta name="color:Page Header Background Color" content="#000000"/>
-    <meta name="color:Navigation Foreground Color"  content="#ffffff"/>
-    <meta name="color:Navigation Background Color"  content="#000000"/>
-    <meta name="color:Content Foreground Color"     content="#ffffff"/>
-    <meta name="color:Content Background Color"     content="#202020"/>
+    {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
+    <meta name="text:Custom Font CSS" content="font-family: YuMincho,Hiragino Mincho ProN,'@Meiryo',Meiryo,Times New Roman,Serif!important;"/>
     <meta name="if:Use Article Border CSS" content="0"/>
-    <meta name="if:Show Page Top Navigation" content="1"/>
-    <meta name="if:Show Page Bottom Navigation" content="1"/>
+    <meta name="if:Show Page Header Navigation" content="1"/>
+    <meta name="if:Show Page Footer Navigation" content="1"/>
     <meta name="if:Show Archive Navigation" content="1"/>
     <meta name="if:Show Pagenation Navigation" content="1"/>
     <meta name="if:Show Search Navigation" content="1"/>
-    <meta name="text:Custom Font CSS" content="font-family: YuMincho,Hiragino Mincho ProN,'@Meiryo',Meiryo,Times New Roman,Serif!important;"/>
-    <meta name="text:Title Font Weight" content="bold"  />
-    <meta name="text:Posts Section Width CSS" content="max-width:800px;margin-left:auto;margin-right:auto;"/>
-    <meta name="text:Article Border CSS" content="border:1px dashed"/>
+    <meta name="text:Posts Section Width CSS" content="max-width:2048px;margin-left:auto;margin-right:auto;"/>
+    <meta name="text:Article Border CSS" content="border:1px dotted"/>
+    <meta name="image:Background Image" content=""/>
+    <meta name="color:Body Foreground Color"        content="{TitleColor}"/>
+    <meta name="color:Body Background Color"        content="{BackgroundColor}"/>
+    <meta name="color:Page Header Foreground Color" content="{TitleColor}"/>
+    <meta name="color:Page Header Background Color" content="{BackgroundColor}"/>
+    <meta name="color:Page Footer Foreground Color" content="{TitleColor}"     />
+    <meta name="color:Page Footer Background Color" content="{BackgroundColor}"/>
+    <meta name="color:Navigation Foreground Color"  content="{TitleColor}"/>
+    <meta name="color:Navigation Background Color"  content="{BackgroundColor}"/>
+    <meta name="color:Content Foreground Color"     content="{TitleColor}"/>
+    <meta name="color:Content Background Color"     content="{BackgroundColor}"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
     <style>
-      @charset 'utf-8';
       html, body, * {
+        writing-mode:
+          horizontal-tb;
+        -ms-writing-mode:
+          lr-tb;
+        -webkit-writing-mode:
+          horizontal-tb;
+        -epub-writing-mode:
+          horizontal-tb;
+        text-orientation:
+          mixed;
+        -webkit-text-orientation:
+          mixed;
+        direction:
+          ltr;
         {text:Custom Font CSS};
         box-sizing:
           border-box;
@@ -41,6 +53,12 @@
       html, body {
         margin:
          0;
+      }
+      .text-orientation-upright {
+        text-orientation:
+          upright;
+        -webkit-text-orientation:
+          upright;
       }
       body {
         color:
@@ -53,39 +71,71 @@
           url('{image:Background Image}');
         margin-top:2em;
       }
-      header#page-header-top, header#page-header-bottom {
+
+      header#page-header, nav#page-header-nav,
+      footer#page-footer, nav#page-footer-nav{
+        text-align:
+          center;
+        margin-left:
+          auto;
+        margin-right:
+          auto;
+        margin-bottom:
+          0.5rem;
+        font-size:
+          small;
+      }
+      span.nav-span {
+        display:
+          inline-block;
+      }
+      header#page-header {
         color:
           {color:Page Header Foreground Color};
         background-color:
           {color:Page Header Background Color};
+      }
+      footer#page-footer {
+        color:
+          {color:Page Footer Foreground Color};
+        background-color:
+          {color:Page Footer Background Color};
+        text-align:
+          right;
         font-size:
-          small;
-        margin-bottom:
-          0.5rem;
+          xx-small;
       }
       h1, h2, h3, h4, h5, h6 {
         color:
-          {color:Custom Title Color};
+          {TitleColor};
       }
       h1.blog-title {
+        font-family:
+          {TitleFont};
         font-weight:
-          {text:Title Font Weight};
-        display:
-         inline;
+          {TitleFontWeight};
+        font-size:
+          x-large;
+        margin:
+          0.5rem;
       }
       p.description {
-        display:
-          inline;
+        font-size:
+          medium;
+        margin:
+          0.5rem;
+      }
+      nav, nav * {
+        font-size:
+          small;
       }
       nav {
         color:
           {color:Navigation Foreground Color};
         background-color:
           {color:Navigation Background Color};
-      }
-      nav#page-nav-header-top, nav#page-nav-header-bottom {
-        display:
-          inline;
+        margin:
+          0.5rem;
       }
       section#posts {
         {text:Posts Section Width CSS};
@@ -95,24 +145,21 @@
           {color:Content Foreground Color};
         background-color:
           {color:Content Background Color};
+        margin-bottom:
+          1rem;
+        padding:
+          1rem;
+        margin-left:
+          auto;
+        margin-right:
+          auto;
         {block:IfUseArticleBorderCSS}
           {text:Article Border CSS};
         {/block:IfUseArticleBorderCSS}
-        margin-bottom:
-         1rem;
-        padding:
-         1rem;
-        margin-left:
-         auto;
-        margin-right:
-         auto;
       }
       div.reblog-control, div.like-control {
         display:
           inline-block;
-      }
-      .reblog-control, .like-control,
-      .reblog-button , .like-button {
         margin:
           0;
         padding:
@@ -121,16 +168,6 @@
           center;
         vertical-align:
           text-top;
-      }
-      form#search-top, form#search-bottom {
-        display:
-          inline;
-      }
-      footer#page-footer {
-        text-align:
-          right;
-        font-size:
-          xx-small;
       }
       div.html_photoset {
         text-align:
@@ -153,18 +190,44 @@
         max-width:
           100%;
       }
-      img.photo-content {
+      img.header-image, img.photo-content {
         width:
           100%;
         text-align:
           center;
       }
+      form#header-search, form#footer-search {
+        margin:
+          0.5rem;
+      }
       a {
         color:
-          {color:Custom Accent Color};
+          {AccentColor};
         text-decoration:
           none;
       }
+      footer.article-footer {
+        margin:
+          0.5rem;
+        text-align:
+          right;
+      }
+      div.postnotes, div.postnotes * {
+        text-align:
+          left;
+      }
+      div.colophon {
+        text-align:
+          right;
+      }
+      div.header-image, div.header-avatar {
+        text-align:
+         center;
+      }
+      span.inline-block {
+        display:
+          inline-block;
+      ]
       {CustomCSS}
     </style>
   </head>
@@ -173,37 +236,55 @@
     <section id="page">
       {block:IndexPage}
         {block:ShowHeaderImage}
-        <header id="header-image">
-          <a href="{BlogURL}#page-header-top" {Target}><img src="{HeaderImage}" alt="{Title}"/></a>
-        </header>
+          <div class="header-image">
+            <a class="header-image" href="{BlogURL}" {Target}><img class="header-image" src="{HeaderImage}" alt="{Title}"/></a>
+          </div>
         {/block:ShowHeaderImage}
         {block:HideHeaderImage}
         {/block:HideHeaderImage}
+
+        {block:ShowAvatar}
+          <div class="header-avatar">
+            <a class="header-avatar" href="{BlogURL}" {Target}><img src="{PortraitURL-48}" alt="{Title}"/></a> 
+          </div>
+        {/block:ShowAvatar}
+        {block:HideAvatar}
+        {/block:HideAvatar}
       {/block:IndexPage}
 
-      <header id="page-header-top">
-        {block:IfShowPageTopNavigation}
-          {block:ShowAvatar}
-            <span class="avatar">
-              <a href="{BlogURL}#page-header-top" {Target}><img src="{PortraitURL-16}" alt="{Title}"></a> 
-            </span>
-          {/block:ShowAvatar}
-          {block:HideAvatar}
-          {/block:HideAvatar}
+      <header id="page-header">
+          {block:ShowTitle}
+            <h1 class="blog-title">
+              <a href="{BlogURL}" {Target}>{Title}</a>
+            </h1>
+          {/block:ShowTitle}
+          {block:HideTitle}
+          {/block:HideTitle}
 
-          {block:ShowTitle}<h1 class="blog-title"><a href="{BlogURL}" {Target}>{Title}</a></h1>{/block:ShowTitle}{block:HideTitle}{/block:HideTitle}
-          {block:ShowDescription}<p class="description">{Description}</p>{/block:ShowDescription}{block:HideDescription}{/block:HideDescription}
+          {block:ShowDescription}
+            <p class="description">{Description}</p>
+          {/block:ShowDescription}
+          {block:HideDescription}
+          {/block:HideDescription}
 
-          <nav id="page-nav-header-top">
+         {block:IfShowPageHeaderNavigation}
+          <nav id="page-header-nav">
+            {block:IfShowSearchNavigation}
+              <form id="header-search" action="/search" method="get">
+                <input type="text" name="q" value="{SearchQuery}"/>
+                <input type="submit" value="{lang:Search}"/>
+              </form>
+            {/block:IfShowSearchNavigation}
+
             {block:HasPages}
-              <span class="pages-nav">
+              <span class="nav-span pages-nav">
                 {block:Pages}
                   <a href="{URL}">{Label}</a>
                 {/block:Pages}
               </span>
             {/block:HasPages}
 
-            <span class="misc-nav">
+            <span class="nav-span misc-nav">
               {block:ifShowArchiveNavigation}
                 <a href="/archive">{lang:Archive}</a>
               {/block:ifShowArchiveNavigation}
@@ -217,30 +298,29 @@
 
             {block:IfShowPagenationNavigation}
               {block:Pagination}
-                <span class="pagenation-nav">
+                <span class="nav-span pagenation-nav">
                   {block:PreviousPage}
                     <a href="{PreviousPage}"> {lang:Previous page} </a>
                   {/block:PreviousPage}
 
                   {block:JumpPagination length="5"}
                     {block:CurrentPage}
-                      <span> {PageNumber} </span>
+                      <span class="text-orientation-upright"> {PageNumber} </span>
                     {/block:CurrentPage}
                     {block:JumpPage}
-                      <span><a href="{URL}"> {PageNumber} </a></span> 
+                      <span class="text-orientation-upright"><a href="{URL}"> {PageNumber} </a></span> 
                     {/block:JumpPage}
                   {/block:JumpPagination}
 
                   {block:NextPage}
                     <a href="{NextPage}"> {lang:Next page} </a>
                   {/block:NextPage}
-
-                  <span> {lang:Page CurrentPage of TotalPages} </span> 
                 </span>
+                <span class="nav-span text-orientation-upright"> {lang:Page CurrentPage of TotalPages} </span> 
               {/block:Pagination}
 
               {block:PermalinkPagination}
-                <span class="permalink-pagenation-nav">
+                <span class="nav-span permalink-pagenation-nav">
                   {block:NextPost}
                     <a href="{NextPost}">{lang:Next post}</a>
                   {/block:NextPost}
@@ -252,28 +332,21 @@
               {/block:PermalinkPagination}
 
               {block:DayPage}
-                <span class="day-pagenation-nav">
                   {block:DayPagination}
-                    {block:NextDayPage}
-                      <a href="{NextDayPage}">{lang:Next day}<a>
-                    {/block:NextDayPage}
+                    <span class="nav-span day-pagenation-nav">
+                      {block:NextDayPage}
+                        <a href="{NextDayPage}">{lang:Next day}<a>
+                      {/block:NextDayPage}
 
-                    {block:PreviousDayPage}
-                      <a href="{PreviousDayPage}">{lang:Previous day}<a>
-                    {/block:PreviousDayPage}
+                      {block:PreviousDayPage}
+                        <a href="{PreviousDayPage}">{lang:Previous day}<a>
+                      {/block:PreviousDayPage}
+                    </span>
                   {/block:DayPagination}
-                </span>
               {/block:DayPage}
             {/block:IfShowPagenationNavigation}
-
-            {block:IfShowSearchNavigation}
-              <form id="search-top" action="/search" method="get">
-                <input type="text" name="q" value="{SearchQuery}"/>
-                <input type="submit" value="{lang:Search}"/>
-              </form>
-            {/block:IfShowSearchNavigation}
           </nav>
-        {/block:IfShowPageTopNavigation}
+        {/block:IfShowPageHeaderNavigation}
 
         {block:SearchPage}
           <div class="search-header">
@@ -407,7 +480,9 @@
             {/block:Chat}
 
             {block:Video}
-              <div class="embed-wrapper">{Video-700}</div>
+              <div class="embed-wrapper">
+                {Video-700}
+              </div>
               {block:Caption}
                 <div class="caption">{Caption}</div>
               {/block:Caption}
@@ -415,7 +490,9 @@
 
             {block:Audio}
               {block:AudioEmbed}
-                <div class="embed-wrapper">{AudioEmbed-640}</div>
+                <div class="embed-wrapper">
+                  {AudioEmbed-640}
+                </div>
               {/block:AudioEmbed}
 
               {block:Caption}
@@ -433,14 +510,14 @@
 
             <footer class="article-footer">
               {block:NoteCount}
-                <a href="{Permalink}#PostNotes"><span>{NoteCountWithLabel}</span></a> 
+                <a href="{Permalink}#PostNotes"><span class="text-orientation-upright">{NoteCountWithLabel}</span></a> 
               {/block:NoteCount}
 
               {block:Date}
                 {Year}/{MonthNumberWithZero}/{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds} 
               {/block:Date}
 
-              <a href="{Permalink}" class="share-item permalink">{lang:Permalink}</a> 
+              <span class="inline-block"><a href="{Permalink}" class="share-item permalink">{lang:Permalink}</a></span> 
 
               <div class="control reblog-control">{ReblogButton}</div>
 
@@ -483,28 +560,25 @@
         {/block:Posts}
       </section>
 
-      <header id="page-header-bottom">
-        {block:IfShowPageBottomNavigation}
-          {block:ShowAvatar}
-            <span class="avatar">
-              <a href="{BlogURL}#page-header-top" {Target}><img src="{PortraitURL-16}" alt="{Title}"></a> 
-            </span>
-          {/block:ShowAvatar}
-          {block:HideAvatar}
-          {/block:HideAvatar}
+      <footer id="page-footer">
+        {block:IfShowPageFooterNavigation}
+          <nav id="page-footer-nav">
+            {block:IfShowSearchNavigation}
+              <form id="footer-search" action="/search" method="get">
+                <input type="text" name="q" value="{SearchQuery}"/>
+                <input type="submit" value="{lang:Search}"/>
+              </form>
+            {/block:IfShowSearchNavigation}
 
-          {block:ShowTitle}<h1 class="blog-title"><a href="{BlogURL}" {Target}>{Title}</a></h1>{/block:ShowTitle}{block:HideTitle}{/block:HideTitle}
-          {block:ShowDescription}<p class="description">{Description}</p>{/block:ShowDescription}{block:HideDescription}{/block:HideDescription}
-          <nav id="page-nav-header-bottom">
             {block:HasPages}
-              <span class="pages-nav">
+              <span class="nav-span pages-nav">
                 {block:Pages}
                   <a href="{URL}">{Label}</a>
                 {/block:Pages}
               </span>
             {/block:HasPages}
 
-            <span class="misc-nav">
+            <span class="nav-span misc-nav">
               {block:ifShowArchiveNavigation}
                 <a href="/archive">{lang:Archive}</a>
               {/block:ifShowArchiveNavigation}
@@ -518,30 +592,29 @@
 
             {block:IfShowPagenationNavigation}
               {block:Pagination}
-                <span class="pagenation-nav">
+                <span class="nav-span pagenation-nav">
                   {block:PreviousPage}
                     <a href="{PreviousPage}"> {lang:Previous page} </a>
                   {/block:PreviousPage}
 
                   {block:JumpPagination length="5"}
                     {block:CurrentPage}
-                      <span> {PageNumber} </span>
+                      <span class="text-orientation-upright"> {PageNumber} </span>
                     {/block:CurrentPage}
                     {block:JumpPage}
-                      <span><a href="{URL}"> {PageNumber} </a></span> 
+                      <span class="text-orientation-upright"><a href="{URL}"> {PageNumber} </a></span> 
                     {/block:JumpPage}
                   {/block:JumpPagination}
 
                   {block:NextPage}
                     <a href="{NextPage}"> {lang:Next page} </a>
                   {/block:NextPage}
-
-                  <span> {lang:Page CurrentPage of TotalPages} </span> 
                 </span>
+                <span class="nav-span text-orientation-upright"> {lang:Page CurrentPage of TotalPages} </span> 
               {/block:Pagination}
 
               {block:PermalinkPagination}
-                <span class="permalink-pagenation-nav">
+                <span class="nav-span permalink-pagenation-nav">
                   {block:NextPost}
                     <a href="{NextPost}">{lang:Next post}</a>
                   {/block:NextPost}
@@ -553,8 +626,8 @@
               {/block:PermalinkPagination}
 
               {block:DayPage}
-                <span class="day-pagenation-nav">
-                  {block:DayPagination}
+                {block:DayPagination}
+                  <span class="nav-span day-pagenation-nav">
                     {block:NextDayPage}
                       <a href="{NextDayPage}">{lang:Next day}<a>
                     {/block:NextDayPage}
@@ -562,21 +635,13 @@
                     {block:PreviousDayPage}
                       <a href="{PreviousDayPage}">{lang:Previous day}<a>
                     {/block:PreviousDayPage}
-                  {/block:DayPagination}
-                </span>
+                  </span>
+                {/block:DayPagination}
               {/block:DayPage}
             {/block:IfShowPagenationNavigation}
-
-            {block:IfShowSearchNavigation}
-              <form id="search-bottom" action="/search" method="get">
-                <input type="text" name="q" value="{SearchQuery}"/>
-                <input type="submit" value="{lang:Search}"/>
-              </form>
-            {/block:IfShowSearchNavigation}
           </nav>
-        {/block:IfShowPageBottomNavigation}
-      </header>
-      <footer id="page-footer">
+        {/block:IfShowPageFooterNavigation}
+
         <div class="colophon">
           <span class="powered-by-tumblr">{lang:Powered by Tumblr 2}</span>
         </div>
