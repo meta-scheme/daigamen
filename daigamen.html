@@ -52,7 +52,11 @@
       }
       html, body {
         margin:
-         0;
+          0;
+        padding:
+          0;
+        border:
+          none;
       }
       body {
         color:
@@ -90,8 +94,6 @@
           auto;
         margin-right:
           auto;
-        margin-bottom:
-          0.5rem;
         font-size:
           small;
       }
@@ -211,14 +213,16 @@
           {color:One Post Area Text Color};
         background-color:
           {color:One Post Area Background Color};
+        margin-top:
+          0.5rem;
         margin-bottom:
-          1rem;
-        padding:
-          1rem;
+          0.5rem;
         margin-left:
           auto;
         margin-right:
           auto;
+        padding:
+          0.5rem;
         {block:IfUseArticleBorderCSS}
           {text:Article Border CSS};
         {/block:IfUseArticleBorderCSS}
@@ -298,23 +302,21 @@
 
   <body>
     <section id="page">
-      {block:IndexPage}
-        {block:ShowHeaderImage}
-          <div class="header-image">
-            <a class="header-image" href="{BlogURL}" {Target}><img class="header-image" src="{HeaderImage}" alt="{Title}"/></a>
-          </div>
-        {/block:ShowHeaderImage}
-        {block:HideHeaderImage}
-        {/block:HideHeaderImage}
+      {block:ShowHeaderImage}
+        <div class="header-image">
+          <a class="header-image" href="{BlogURL}" {Target}><img class="header-image" src="{HeaderImage}" alt="{Title}"/></a>
+        </div>
+      {/block:ShowHeaderImage}
+      {block:HideHeaderImage}
+      {/block:HideHeaderImage}
 
-        {block:ShowAvatar}
-          <div class="header-avatar {AvatarShape}">
-            <a class="header-avatar {AvatarShape}" href="{BlogURL}" {Target}><img class="header-avatar {AvatarShape}" src="{PortraitURL-48}" alt="{Title}"/></a> 
-          </div>
-        {/block:ShowAvatar}
-        {block:HideAvatar}
-        {/block:HideAvatar}
-      {/block:IndexPage}
+      {block:ShowAvatar}
+        <div class="header-avatar {AvatarShape}">
+          <a class="header-avatar {AvatarShape}" href="{BlogURL}" {Target}><img class="header-avatar {AvatarShape}" src="{PortraitURL-48}" alt="{Title}"/></a>
+        </div>
+      {/block:ShowAvatar}
+      {block:HideAvatar}
+      {/block:HideAvatar}
 
       <header id="page-header">
         {block:ShowTitle}
