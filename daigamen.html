@@ -508,16 +508,16 @@
               {block:Exif}
                 <ul>
                 {block:Camera}
-                  <li>カメラ: {Camera}</li>
+                  <li>Camera: {Camera}</li>
                 {/block:Camera}
                 {block:Aperture}
-                  <li>絞り値: {Aperture}</li>
+                  <li>Aperture: {Aperture}</li>
                 {/block:Aperture}
                 {block:Exposure}
-                  <li>露出: {Exposure}</li>
+                  <li>Exposure: {Exposure}</li>
                 {/block:Exposure}
                 {block:FocalLength}
-                  <li>焦点距離: {FocalLength}</li>
+                  <li>Focal Length: {FocalLength}</li>
                 {/block:FocalLength}
                 </ul>
               {/block:Exif}
@@ -672,6 +672,8 @@
                 </div>
               {/block:HasTags}
 
+              <div class="post-author">{lang:By PostAuthorName 2}</div>
+
               {block:PostNotes}
                 <div class="postnotes">
                 {block:ContentSource}
@@ -782,6 +784,16 @@
             {/block:IfShowPagenationNavigation}
           </nav>
         {/block:IfShowPageFooterNavigation}
+
+        {block:GroupMembers}
+          <div class="group-members">
+          {block:GroupMember}
+            <span class="group-member">
+              <a href="{GroupMemberURL}" title="{GroupMemberTitle}"><img src="{GroupMemberPortraitURL-16}" alt="{GroupMemberName}"/></a>
+            </span>
+          {/block:GroupMember}
+          </div>
+        {/block:GroupMembers}
 
         <div class="colophon">
           <span class="powered-by-tumblr">{lang:Powered by Tumblr 2}</span>
