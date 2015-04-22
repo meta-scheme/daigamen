@@ -41,6 +41,7 @@
     <meta name="if:Show Archive Navigation" content="1"/>
     <meta name="if:Show Pagenation Navigation" content="1"/>
     <meta name="if:Show Search Navigation" content="1"/>
+    <meta name="if:Show Post Author Group Member" content="0"/>
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
@@ -497,37 +498,7 @@
               {LinkOpenTag}
                 <img class="photo-content" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
               {LinkCloseTag}
-              {block:HighRes}
-                 <div><a href="{PhotoURL-HighRes}">{lang:View high resolution}</a></div>
-              {/block:HighRes}
-
-              {block:Caption}
-                <div class="caption">{Caption}</div>
-              {/block:Caption}
-
-              {block:Exif}
-                <ul>
-                {block:Camera}
-                  <li>Camera: {Camera}</li>
-                {/block:Camera}
-                {block:Aperture}
-                  <li>Aperture: {Aperture}</li>
-                {/block:Aperture}
-                {block:Exposure}
-                  <li>Exposure: {Exposure}</li>
-                {/block:Exposure}
-                {block:FocalLength}
-                  <li>Focal Length: {FocalLength}</li>
-                {/block:FocalLength}
-                </ul>
-              {/block:Exif}
-            {/block:Photo}
-
-            {block:Photoset}
-              {block:Photos}
-                {LinkOpenTag}
-                  <img class="photo-content" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
-                {LinkCloseTag}
+              {block:PermalinkPage}
                 {block:HighRes}
                    <div><a href="{PhotoURL-HighRes}">{lang:View high resolution}</a></div>
                 {/block:HighRes}
@@ -535,6 +506,7 @@
                 {block:Caption}
                   <div class="caption">{Caption}</div>
                 {/block:Caption}
+
                 {block:Exif}
                   <ul>
                   {block:Camera}
@@ -551,6 +523,39 @@
                   {/block:FocalLength}
                   </ul>
                 {/block:Exif}
+              {/block:PermalinkPage}
+            {/block:Photo}
+
+            {block:Photoset}
+              {block:Photos}
+                {LinkOpenTag}
+                  <img class="photo-content" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                {LinkCloseTag}
+                {block:PermalinkPage}
+                  {block:HighRes}
+                     <div><a href="{PhotoURL-HighRes}">{lang:View high resolution}</a></div>
+                  {/block:HighRes}
+
+                  {block:Caption}
+                    <div class="caption">{Caption}</div>
+                  {/block:Caption}
+                  {block:Exif}
+                    <ul>
+                    {block:Camera}
+                      <li>Camera: {Camera}</li>
+                    {/block:Camera}
+                    {block:Aperture}
+                      <li>Aperture: {Aperture}</li>
+                    {/block:Aperture}
+                    {block:Exposure}
+                      <li>Exposure: {Exposure}</li>
+                    {/block:Exposure}
+                    {block:FocalLength}
+                      <li>Focal Length: {FocalLength}</li>
+                    {/block:FocalLength}
+                    </ul>
+                  {/block:Exif}
+                {/block:PermalinkPage}
               {/block:Photos}
 
               {block:Caption}
@@ -620,10 +625,12 @@
                 <div class="caption">{Caption}</div>
               {/block:Caption}
 
-              {block:TrackName}Track Name: {TrackName}<br/>{/block:TrackName}
-              {block:Artist}Artist: {Artist}<br/>{/block:Artist}
-              {block:Album}Album: {Album}<br/>{/block:Album}
-              {block:ExternalAudio}<a href="{ExternalAudioURL}">{lang:Download this track}</a><br/>{/block:ExternalAudio}
+              {block:PermalinkPage}
+                {block:TrackName}Track Name: {TrackName}<br/>{/block:TrackName}
+                {block:Artist}Artist: {Artist}<br/>{/block:Artist}
+                {block:Album}Album: {Album}<br/>{/block:Album}
+                {block:ExternalAudio}<a href="{ExternalAudioURL}">{lang:Download this track}</a><br/>{/block:ExternalAudio}
+              {/block:PermalinkPage}
             {/block:Audio}
 
             {block:Answer}
@@ -672,7 +679,13 @@
                 </div>
               {/block:HasTags}
 
-              <div class="post-author">{lang:By PostAuthorName 2}</div>
+              {block:GroupMembers}
+                {block:IfShowPostAuthorGroupMember}
+                  <div class="post-author">
+                    {lang:By PostAuthorName 2}
+                  </div>
+                {/block:IfShowPostAuthorGroupMember}
+              {/block:GroupMembers} 
 
               {block:PostNotes}
                 <div class="postnotes">
@@ -787,11 +800,12 @@
 
         {block:GroupMembers}
           <div class="group-members">
-          {block:GroupMember}
-            <span class="group-member">
-              <a href="{GroupMemberURL}" title="{GroupMemberTitle}"><img src="{GroupMemberPortraitURL-16}" alt="{GroupMemberName}"/></a>
-            </span>
-          {/block:GroupMember}
+            <span>{lang:Members} </span>
+            {block:GroupMember}
+              <span class="group-member">
+                <a href="{GroupMemberURL}" title="{GroupMemberTitle}"><img src="{GroupMemberPortraitURL-16}" alt="{GroupMemberName}"/></a>
+              </span>
+            {/block:GroupMember}
           </div>
         {/block:GroupMembers}
 
