@@ -17,6 +17,7 @@
     <meta name="color:All Posts Area Background Color" content="{BackgroundColor}"/>
     <meta name="color:One Post Area Text Color"        content="{TitleColor}"     />
     <meta name="color:One Post Area Background Color"  content="{BackgroundColor}"/>
+    <meta name="select:One Post Area Border Style" content="none"   title="None"  />
     <meta name="select:One Post Area Border Style" content="dotted" title="Dotted"/>
     <meta name="select:One Post Area Border Style" content="dashed" title="Dashed"/>
     <meta name="select:One Post Area Border Style" content="solid"  title="Solid" />
@@ -26,7 +27,6 @@
     <meta name="select:One Post Area Border Style" content="ridge"  title="Ridge" />
     <meta name="select:One Post Area Border Style" content="groove" title="Groove"/>
     <meta name="select:One Post Area Border Style" content="hidden" title="Hidden"/>
-    <meta name="select:One Post Area Border Style" content="none"   title="None"  />
     <meta name="if:Show Post Author Group Member" content="0"/>
     <meta name="if:Show Group Members Icon" content="0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -246,7 +246,13 @@
           auto;
         margin-right:
           auto;
-        padding:
+        padding-top:
+          0;
+        padding-bottom:
+          0;
+        padding-left:
+          0.5rem;
+        padding-right:
           0.5rem;
       }
       article.post.border-style-dotted {
