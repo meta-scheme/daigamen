@@ -47,10 +47,10 @@
     <meta name="if:Show Archive Navigation" content="1"/>
     <meta name="if:Show Pagenation Navigation" content="1"/>
     <meta name="if:Show Search Navigation" content="1"/>
-    <link rel="shortcut icon" href="{Favicon}">
-    <link rel="alternate" type="application/rss+xml" href="{RSS}">
-    <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
-    <link href="http://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="{Favicon}"/>
+    <link rel="alternate" type="application/rss+xml" href="{RSS}"\>
+    <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}"/>
+    {block:Japanese}<link href="http://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" type="text/css"/>{/block:Japanese}
     <style>
       html, body, * {
         writing-mode:
@@ -68,7 +68,7 @@
         direction:
           ltr;
         font-family:
-          YuMincho,Hiragino Mincho ProN,'@Meiryo',Meiryo,Noto Sans Japanese,Times New Roman,{TitleFont},Serif !important;
+          {block:Japanese}YuMincho,Hiragino Mincho ProN,'@Meiryo',Meiryo,Noto Sans Japanese,Times New Roman,{/block:Japanese}{TitleFont}!important;
         box-sizing:
           border-box;
       }
@@ -183,7 +183,7 @@
       }
       h1.blog-title {
         font-family:
-          {TitleFont};
+          {TitleFont}!important;
         font-weight:
           {TitleFontWeight};
         font-size:
