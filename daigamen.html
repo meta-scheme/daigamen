@@ -7,16 +7,20 @@
     <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
     {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
     <meta name="image:Background Image" content=""/>
-    <meta name="color:Page Header Text Color"          content="{TitleColor}"     />
-    <meta name="color:Page Header Background Color"    content="{BackgroundColor}"/>
-    <meta name="color:Page Footer Text Color"          content="{TitleColor}"     />
-    <meta name="color:Page Footer Background Color"    content="{BackgroundColor}"/>
-    <meta name="color:Navigation Text Color"           content="{TitleColor}"     />
-    <meta name="color:Navigation Background Color"     content="{BackgroundColor}"/>
-    <meta name="color:All Posts Area Text Color"       content="{TitleColor}"     />
-    <meta name="color:All Posts Area Background Color" content="{BackgroundColor}"/>
-    <meta name="color:One Post Area Text Color"        content="{TitleColor}"     />
-    <meta name="color:One Post Area Background Color"  content="{BackgroundColor}"/>
+    <meta name="color:Title Color"                     content="#e0e0e0"                 />
+    <meta name="color:Accent Color"                    content="#529ecc"                 />
+    <meta name="color:Text Color"                      content="#ffffff"                 />
+    <meta name="color:Background Color"                content="#000000"                 />
+    <meta name="color:Page Header Text Color"          content="{color:Text Color}"      />
+    <meta name="color:Page Header Background Color"    content="{color:Background Color}"/>
+    <meta name="color:Page Footer Text Color"          content="{color:Text Color}"      />
+    <meta name="color:Page Footer Background Color"    content="{color:Background Color}"/>
+    <meta name="color:Navigation Text Color"           content="{color:Text Color}"      />
+    <meta name="color:Navigation Background Color"     content="{color:Background Color}"/>
+    <meta name="color:All Posts Area Text Color"       content="{color:Text Color}"      />
+    <meta name="color:All Posts Area Background Color" content="{color:Background Color}"/>
+    <meta name="color:One Post Area Text Color"        content="{color:Text Color}"      />
+    <meta name="color:One Post Area Background Color"  content="{color:Background Color}"/>
     <meta name="select:One Post Area Border Style" content="none"   title="None"  />
     <meta name="select:One Post Area Border Style" content="dotted" title="Dotted"/>
     <meta name="select:One Post Area Border Style" content="dashed" title="Dashed"/>
@@ -78,9 +82,9 @@
       }
       body {
         color:
-          {TitleColor};
+          {color:Text Color};
         background-color:
-          {BackgroundColor};
+          {color:Background Color};
         -webkit-text-size-adjust:
           100%;
         background-image:
@@ -346,11 +350,11 @@
       }
       h1, h2, h3, h4, h5, h6 {
         color:
-          {TitleColor};
+          {color:Title Color};
       }
       a {
         color:
-          {AccentColor};
+          {color:Accent Color};
         text-decoration:
           none;
       }
