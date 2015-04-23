@@ -27,6 +27,8 @@
     <meta name="select:One Post Area Border Style" content="groove" title="Groove"/>
     <meta name="select:One Post Area Border Style" content="hidden" title="Hidden"/>
     <meta name="select:One Post Area Border Style" content="none"   title="None"  />
+    <meta name="if:Show Post Author Group Member" content="0"/>
+    <meta name="if:Show Group Members Icon" content="0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="select:Page width" content="2048px" title="2048px"/>
     <meta name="select:Page width" content="1920px" title="1920px"/>
@@ -41,8 +43,6 @@
     <meta name="if:Show Archive Navigation" content="1"/>
     <meta name="if:Show Pagenation Navigation" content="1"/>
     <meta name="if:Show Search Navigation" content="1"/>
-    <meta name="if:Show Post Author Group Member" content="0"/>
-    <meta name="if:Show Group Members Icon" content="0"/>
     <link rel="shortcut icon" href="{Favicon}">
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}">
@@ -500,14 +500,13 @@
               {LinkOpenTag}
                 <img class="photo-content" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
               {LinkCloseTag}
+              {block:Caption}
+                <div class="caption">{Caption}</div>
+              {/block:Caption}
               {block:PermalinkPage}
                 {block:HighRes}
                    <div><a href="{PhotoURL-HighRes}">{lang:View high resolution}</a></div>
                 {/block:HighRes}
-
-                {block:Caption}
-                  <div class="caption">{Caption}</div>
-                {/block:Caption}
 
                 {block:Exif}
                   <ul>
@@ -533,14 +532,14 @@
                 {LinkOpenTag}
                   <img class="photo-content" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
                 {LinkCloseTag}
+                {block:Caption}
+                  <div class="caption">{Caption}</div>
+                {/block:Caption}
                 {block:PermalinkPage}
                   {block:HighRes}
                      <div><a href="{PhotoURL-HighRes}">{lang:View high resolution}</a></div>
                   {/block:HighRes}
 
-                  {block:Caption}
-                    <div class="caption">{Caption}</div>
-                  {/block:Caption}
                   {block:Exif}
                     <ul>
                     {block:Camera}
@@ -806,7 +805,7 @@
               <span>{lang:Members} </span>
               {block:GroupMember}
                 <span class="group-member">
-                  <a href="{GroupMemberURL}" title="{GroupMemberTitle}"><img src="{GroupMemberPortraitURL-16}" alt="{GroupMemberName}"/></a>
+                  <a href="{GroupMemberURL}" title="{GroupMemberTitle}"><img src="{GroupMemberPortraitURL-16}" title="{GroupMemberName}" alt="{GroupMemberName}"/></a>
                 </span>
               {/block:GroupMember}
             </div>
