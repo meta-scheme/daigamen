@@ -44,6 +44,7 @@
     <meta name="select:Page width" content="720px"  title="720px" />
     <meta name="if:Show Page Header Navigation" content="1"/>
     <meta name="if:Show Page Footer Navigation" content="1"/>
+    <meta name="if:Show Home Navigation" content="1"/>
     <meta name="if:Show Archive Navigation" content="1"/>
     <meta name="if:Show Pagenation Navigation" content="1"/>
     <meta name="if:Show Search Navigation" content="1"/>
@@ -68,7 +69,7 @@
         direction:
           ltr;
         font-family:
-          {block:Japanese}YuMincho,Hiragino Mincho ProN,'@Meiryo',Meiryo,Noto Sans Japanese,Times New Roman,{/block:Japanese}{TitleFont}!important;
+          {block:Japanese}YuMincho,Hiragino Mincho ProN,'@Meiryo',Meiryo,Noto Sans Japanese,Times New Roman,{/block:Japanese}{TitleFont};
         box-sizing:
           border-box;
       }
@@ -183,7 +184,7 @@
       }
       h1.blog-title {
         font-family:
-          {TitleFont}!important;
+          {TitleFont};
         font-weight:
           {TitleFontWeight};
         font-size:
@@ -406,8 +407,11 @@
 
             {block:HasPages}
               <span class="nav-span pages-nav">
+                {block:ifShowHomeNavigation}
+                  <a href="/">{lang:Home}</a> 
+                {/block:ifShowHomeNavigation}
                 {block:Pages}
-                  <a href="{URL}">{Label}</a>
+                  <a href="{URL}">{Label}</a> 
                 {/block:Pages}
               </span>
             {/block:HasPages}
@@ -739,8 +743,11 @@
 
             {block:HasPages}
               <span class="nav-span pages-nav">
+                {block:ifShowHomeNavigation}
+                  <a href="/">{lang:Home}</a> 
+                {/block:ifShowHomeNavigation}
                 {block:Pages}
-                  <a href="{URL}">{Label}</a>
+                  <a href="{URL}">{Label}</a> 
                 {/block:Pages}
               </span>
             {/block:HasPages}
