@@ -158,9 +158,9 @@
       }
       div.header-avatar {
         width:
-          48px;
+          24px;
         height:
-          48px;
+          24px;
         margin-top:
           0;
         margin-bottom:
@@ -375,7 +375,7 @@
 
       {block:ShowAvatar}
         <div class="header-avatar {AvatarShape}">
-          <a class="header-avatar {AvatarShape}" href="{BlogURL}" title="{Title}" {Target}><img class="header-avatar {AvatarShape}" src="{PortraitURL-48}" title="{Title}" alt="{Title}"/></a>
+          <a class="header-avatar {AvatarShape}" href="{BlogURL}" title="{Title}" {Target}><img class="header-avatar {AvatarShape}" src="{PortraitURL-24}" title="{Title}" alt="{Title}"/></a>
         </div>
       {/block:ShowAvatar}
       {block:HideAvatar}
@@ -405,11 +405,14 @@
               </form>
             {/block:IfShowSearchNavigation}
 
+            {block:ifShowHomeNavigation}
+              <span class="nav-span home-nav">
+                <a href="/">{lang:Home}</a> 
+              </span>
+            {/block:ifShowHomeNavigation}
+
             {block:HasPages}
               <span class="nav-span pages-nav">
-                {block:ifShowHomeNavigation}
-                  <a href="/">{lang:Home}</a> 
-                {/block:ifShowHomeNavigation}
                 {block:Pages}
                   <a href="{URL}">{Label}</a> 
                 {/block:Pages}
@@ -741,11 +744,14 @@
               </form>
             {/block:IfShowSearchNavigation}
 
+            {block:ifShowHomeNavigation}
+              <span class="nav-span home-nav">
+                <a href="/">{lang:Home}</a> 
+              </span>
+            {/block:ifShowHomeNavigation}
+
             {block:HasPages}
               <span class="nav-span pages-nav">
-                {block:ifShowHomeNavigation}
-                  <a href="/">{lang:Home}</a> 
-                {/block:ifShowHomeNavigation}
                 {block:Pages}
                   <a href="{URL}">{Label}</a> 
                 {/block:Pages}
