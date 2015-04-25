@@ -7,20 +7,20 @@
     <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
     {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
     <meta name="image:Background Image" content=""/>
-    <meta name="color:Title Color"                     content="#e0e0e0"                 />
-    <meta name="color:Accent Color"                    content="#529ecc"                 />
-    <meta name="color:Text Color"                      content="#ffffff"                 />
-    <meta name="color:Background Color"                content="#000000"                 />
-    <meta name="color:Page Header Text Color"          content="{color:Text Color}"      />
-    <meta name="color:Page Header Background Color"    content="{color:Background Color}"/>
-    <meta name="color:Page Footer Text Color"          content="{color:Text Color}"      />
-    <meta name="color:Page Footer Background Color"    content="{color:Background Color}"/>
-    <meta name="color:Navigation Text Color"           content="{color:Text Color}"      />
-    <meta name="color:Navigation Background Color"     content="{color:Background Color}"/>
-    <meta name="color:All Posts Area Text Color"       content="{color:Text Color}"      />
-    <meta name="color:All Posts Area Background Color" content="{color:Background Color}"/>
-    <meta name="color:One Post Area Text Color"        content="{color:Text Color}"      />
-    <meta name="color:One Post Area Background Color"  content="{color:Background Color}"/>
+    <meta name="color:Title Color"                     content="#e0e0e0"/>
+    <meta name="color:Accent Color"                    content="#529ecc"/>
+    <meta name="color:Text Color"                      content="#fafafa"/>
+    <meta name="color:Background Color"                content="#222222"/>
+    <meta name="color:Page Header Text Color"          content="#fafafa"/>
+    <meta name="color:Page Header Background Color"    content="#222222"/>
+    <meta name="color:Page Footer Text Color"          content="#fafafa"/>
+    <meta name="color:Page Footer Background Color"    content="#222222"/>
+    <meta name="color:Navigation Text Color"           content="#fafafa"/>
+    <meta name="color:Navigation Background Color"     content="#222222"/>
+    <meta name="color:All Posts Area Text Color"       content="#fafafa"/>
+    <meta name="color:All Posts Area Background Color" content="#222222"/>
+    <meta name="color:One Post Area Text Color"        content="#fafafa"/>
+    <meta name="color:One Post Area Background Color"  content="#222222"/>
     <meta name="select:One Post Area Border Style" content="none"   title="None"  />
     <meta name="select:One Post Area Border Style" content="dotted" title="Dotted"/>
     <meta name="select:One Post Area Border Style" content="dashed" title="Dashed"/>
@@ -367,7 +367,7 @@
     <section id="page">
       {block:ShowHeaderImage}
         <div class="header-image">
-          <a class="header-image" href="{BlogURL}" {Target}><img class="header-image" src="{HeaderImage}" alt="{Title}"/></a>
+          <a class="header-image" href="{BlogURL}" title="{Title}" {Target}><img class="header-image" src="{HeaderImage}" title="{Title}" alt="{Title}"/></a>
         </div>
       {/block:ShowHeaderImage}
       {block:HideHeaderImage}
@@ -375,7 +375,7 @@
 
       {block:ShowAvatar}
         <div class="header-avatar {AvatarShape}">
-          <a class="header-avatar {AvatarShape}" href="{BlogURL}" {Target}><img class="header-avatar {AvatarShape}" src="{PortraitURL-48}" alt="{Title}"/></a>
+          <a class="header-avatar {AvatarShape}" href="{BlogURL}" title="{Title}" {Target}><img class="header-avatar {AvatarShape}" src="{PortraitURL-48}" title="{Title}" alt="{Title}"/></a>
         </div>
       {/block:ShowAvatar}
       {block:HideAvatar}
