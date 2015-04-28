@@ -33,7 +33,6 @@
     <meta name="select:One Post Area Border Style" content="hidden" title="Hidden"/>
     <meta name="if:Show Post Author Group Member" content="0"/>
     <meta name="if:Show Group Members Icon" content="0"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="select:Page width" content="2048px" title="2048px"/>
     <meta name="select:Page width" content="1920px" title="1920px"/>
     <meta name="select:Page width" content="1600px" title="1600px"/>
@@ -42,12 +41,14 @@
     <meta name="select:Page width" content="960px"  title="960px" />
     <meta name="select:Page width" content="800px"  title="800px" />
     <meta name="select:Page width" content="720px"  title="720px" />
+    <meta name="select:Page width" content="auto"   title="auto"  />
     <meta name="if:Show Page Header Navigation" content="1"/>
     <meta name="if:Show Page Footer Navigation" content="1"/>
     <meta name="if:Show Home Navigation" content="1"/>
     <meta name="if:Show Archive Navigation" content="1"/>
     <meta name="if:Show Pagenation Navigation" content="1"/>
     <meta name="if:Show Search Navigation" content="1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="shortcut icon" href="{Favicon}"/>
     <link rel="alternate" type="application/rss+xml" href="{RSS}">
     <link rel="apple-touch-icon-precomposed" href="{PortraitURL-128}"/>
@@ -69,7 +70,10 @@
         direction:
           ltr;
         font-family:
-          {block:Japanese}YuMincho,Hiragino Mincho ProN,'@Meiryo',Meiryo,Noto Sans Japanese,{/block:Japanese}{TitleFont}, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
+          {block:Japanese}
+            YuMincho,Hiragino Mincho ProN,'@Meiryo',Meiryo,Noto Sans Japanese,Times New Roman,
+          {/block:Japanese}
+          {TitleFont}, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
         box-sizing:
           border-box;
       }
@@ -421,13 +425,13 @@
 
             <span class="nav-span misc-nav">
               {block:ifShowArchiveNavigation}
-                <a href="/archive">{lang:Archive}</a>
+                <a href="/archive">{lang:Archive}</a> 
               {/block:ifShowArchiveNavigation}
               {block:SubmissionsEnabled}
-                <a href="/submit" class="submit">{SubmitLabel}</a>
+                <a href="/submit" class="submit">{SubmitLabel}</a> 
               {/block:SubmissionsEnabled}
               {block:AskEnabled}
-                <a href="/ask" class="ask">{AskLabel}</a>
+                <a href="/ask" class="ask">{AskLabel}</a> 
               {/block:AskEnabled}
             </span>
 
@@ -435,12 +439,12 @@
               {block:Pagination}
                 <span class="nav-span pagenation-nav">
                   {block:PreviousPage}
-                    <a href="{PreviousPage}"> {lang:Previous page} </a>
+                    <a href="{PreviousPage}"> {lang:Previous page} </a> 
                   {/block:PreviousPage}
 
                   {block:JumpPagination length="5"}
                     {block:CurrentPage}
-                      <span class="text-orientation-upright"> {PageNumber} </span>
+                      <span class="text-orientation-upright"> {PageNumber} </span> 
                     {/block:CurrentPage}
                     {block:JumpPage}
                       <span class="text-orientation-upright"><a href="{URL}"> {PageNumber} </a></span> 
@@ -448,7 +452,7 @@
                   {/block:JumpPagination}
 
                   {block:NextPage}
-                    <a href="{NextPage}"> {lang:Next page} </a>
+                    <a href="{NextPage}"> {lang:Next page} </a> 
                   {/block:NextPage}
                 </span>
                 <span class="nav-span text-orientation-upright"> {lang:Page CurrentPage of TotalPages} </span> 
@@ -457,27 +461,27 @@
               {block:PermalinkPagination}
                 <span class="nav-span permalink-pagenation-nav">
                   {block:NextPost}
-                    <a href="{NextPost}">{lang:Next post}</a>
+                    <a href="{NextPost}"> {lang:Next post} </a> 
                   {/block:NextPost}
 
                   {block:PreviousPost}
-                    <a href="{PreviousPost}">{lang:Previous post}</a>
+                    <a href="{PreviousPost}"> {lang:Previous post} </a> 
                   {/block:PreviousPost}
                 </span>
               {/block:PermalinkPagination}
 
               {block:DayPage}
-                  {block:DayPagination}
-                    <span class="nav-span day-pagenation-nav">
-                      {block:NextDayPage}
-                        <a href="{NextDayPage}">{lang:Next day}<a>
-                      {/block:NextDayPage}
+                {block:DayPagination}
+                  <span class="nav-span day-pagenation-nav">
+                    {block:NextDayPage}
+                      <a href="{NextDayPage}"> {lang:Next day} <a> 
+                    {/block:NextDayPage}
 
-                      {block:PreviousDayPage}
-                        <a href="{PreviousDayPage}">{lang:Previous day}<a>
-                      {/block:PreviousDayPage}
-                    </span>
-                  {/block:DayPagination}
+                    {block:PreviousDayPage}
+                      <a href="{PreviousDayPage}"> {lang:Previous day} <a> 
+                    {/block:PreviousDayPage}
+                  </span>
+                {/block:DayPagination}
               {/block:DayPage}
             {/block:IfShowPagenationNavigation}
           </nav>
@@ -524,7 +528,6 @@
                 {block:HighRes}
                    <div><a href="{PhotoURL-HighRes}">{lang:View high resolution}</a></div>
                 {/block:HighRes}
-
                 {block:Exif}
                   <ul>
                   {block:Camera}
@@ -556,7 +559,6 @@
                   {block:HighRes}
                      <div><a href="{PhotoURL-HighRes}">{lang:View high resolution}</a></div>
                   {/block:HighRes}
-
                   {block:Exif}
                     <ul>
                     {block:Camera}
@@ -760,13 +762,13 @@
 
             <span class="nav-span misc-nav">
               {block:ifShowArchiveNavigation}
-                <a href="/archive">{lang:Archive}</a>
+                <a href="/archive"> {lang:Archive} </a> 
               {/block:ifShowArchiveNavigation}
               {block:SubmissionsEnabled}
-                <a href="/submit" class="submit">{SubmitLabel}</a>
+                <a href="/submit" class="submit"> {SubmitLabel} </a> 
               {/block:SubmissionsEnabled}
               {block:AskEnabled}
-                <a href="/ask" class="ask">{AskLabel}</a>
+                <a href="/ask" class="ask"> {AskLabel} </a> 
               {/block:AskEnabled}
             </span>
 
@@ -774,12 +776,12 @@
               {block:Pagination}
                 <span class="nav-span pagenation-nav">
                   {block:PreviousPage}
-                    <a href="{PreviousPage}"> {lang:Previous page} </a>
+                    <a href="{PreviousPage}"> {lang:Previous page} </a> 
                   {/block:PreviousPage}
 
                   {block:JumpPagination length="5"}
                     {block:CurrentPage}
-                      <span class="text-orientation-upright"> {PageNumber} </span>
+                      <span class="text-orientation-upright"> {PageNumber} </span> 
                     {/block:CurrentPage}
                     {block:JumpPage}
                       <span class="text-orientation-upright"><a href="{URL}"> {PageNumber} </a></span> 
@@ -787,7 +789,7 @@
                   {/block:JumpPagination}
 
                   {block:NextPage}
-                    <a href="{NextPage}"> {lang:Next page} </a>
+                    <a href="{NextPage}"> {lang:Next page} </a> 
                   {/block:NextPage}
                 </span>
                 <span class="nav-span text-orientation-upright"> {lang:Page CurrentPage of TotalPages} </span> 
@@ -796,11 +798,11 @@
               {block:PermalinkPagination}
                 <span class="nav-span permalink-pagenation-nav">
                   {block:NextPost}
-                    <a href="{NextPost}">{lang:Next post}</a>
+                    <a href="{NextPost}"> {lang:Next post} </a> 
                   {/block:NextPost}
 
                   {block:PreviousPost}
-                    <a href="{PreviousPost}">{lang:Previous post}</a>
+                    <a href="{PreviousPost}"> {lang:Previous post} </a> 
                   {/block:PreviousPost}
                 </span>
               {/block:PermalinkPagination}
@@ -809,11 +811,11 @@
                 {block:DayPagination}
                   <span class="nav-span day-pagenation-nav">
                     {block:NextDayPage}
-                      <a href="{NextDayPage}">{lang:Next day}<a>
+                      <a href="{NextDayPage}"> {lang:Next day} <a> 
                     {/block:NextDayPage}
 
                     {block:PreviousDayPage}
-                      <a href="{PreviousDayPage}">{lang:Previous day}<a>
+                      <a href="{PreviousDayPage}"> {lang:Previous day} <a> 
                     {/block:PreviousDayPage}
                   </span>
                 {/block:DayPagination}
