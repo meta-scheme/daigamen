@@ -1,26 +1,27 @@
 <!DOCTYPE html>
 <!-- Tumblrテーマ「大画面」 製作：メタスキーマ -->
-<html lang="ja">
+<html {block:Japanese}lang="ja"{/block:Japanese}>
   <head>
     {MobileAppHeaders}
     <meta charset="utf-8"/>
-    <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+    <title>{Title}{block:SearchPage} ({lang:Search results for SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} &mdash; {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
     {block:Description}<meta name="description" content="{MetaDescription}"/>{/block:Description}
     <meta name="image:Background Image" content=""/>
-    <meta name="color:Title Color"                     content="#e0e0e0"/>
-    <meta name="color:Accent Color"                    content="#529ecc"/>
-    <meta name="color:Text Color"                      content="#fafafa"/>
-    <meta name="color:Background Color"                content="#222222"/>
-    <meta name="color:Page Header Text Color"          content="#fafafa"/>
-    <meta name="color:Page Header Background Color"    content="#222222"/>
-    <meta name="color:Page Footer Text Color"          content="#fafafa"/>
-    <meta name="color:Page Footer Background Color"    content="#222222"/>
-    <meta name="color:Navigation Text Color"           content="#fafafa"/>
-    <meta name="color:Navigation Background Color"     content="#222222"/>
-    <meta name="color:All Posts Area Text Color"       content="#fafafa"/>
-    <meta name="color:All Posts Area Background Color" content="#222222"/>
-    <meta name="color:One Post Area Text Color"        content="#fafafa"/>
-    <meta name="color:One Post Area Background Color"  content="#222222"/>
+    <meta name="color:Title Color"                                    content="#e0e0e0"/>
+    <meta name="color:Accent Color"                                   content="#529ecc"/>
+    <meta name="color:Text Color"                                     content="#fafafa"/>
+    <meta name="color:Background Color"                               content="#222222"/>
+    <meta name="color:Page Header Text Color"                         content="#fafafa"/>
+    <meta name="color:Page Header Background Color"                   content="#222222"/>
+    <meta name="color:Page Footer Text Color"                         content="#fafafa"/>
+    <meta name="color:Page Footer Background Color"                   content="#222222"/>
+    <meta name="color:Navigation Text Color"                          content="#fafafa"/>
+    <meta name="color:Navigation Background Color"                    content="#222222"/>
+    <meta name="color:All Posts Area Text Color"                      content="#fafafa"/>
+    <meta name="color:All Posts Area Background Color"                content="#222222"/>
+    <meta name="color:One Post Area Text Color"                       content="#fafafa"/>
+    <meta name="color:One Post Area Background Color"                 content="#222222"/>
+    <meta name="color:Link Information Background Color of Link Post" content="#eeeeee"          />
     <meta name="select:One Post Area Border Style" content="none"   title="None"  />
     <meta name="select:One Post Area Border Style" content="dotted" title="Dotted"/>
     <meta name="select:One Post Area Border Style" content="dashed" title="Dashed"/>
@@ -189,6 +190,8 @@
           0;
       }
       h1.blog-title {
+        color:
+          {color:Title Color};
         font-family:
           {TitleFont};
         font-weight:
@@ -332,9 +335,13 @@
       }
       div.submitter-information {
       }
-      div.question {
+      div.question, div.answer {
         border:
           1px solid {color:One Post Area Text Color};
+        margin-top:
+          0.5rem;
+        margin-bottom:
+          0.5rem;
       }
       div.reblog-control, div.like-control {
         display:
@@ -369,6 +376,12 @@
         max-width:
           100%;
       }
+      article.post > iframe.twitter-tweet.twitter-tweet-rendered {
+        margin-left:
+          auto!important;
+        margin-right:
+          auto!important;
+      }
       img.photo-content {
         width:
           100%;
@@ -386,8 +399,6 @@
           upright;
       }
       h1, h2, h3, h4, h5, h6 {
-        color:
-          {color:Title Color};
       }
       a {
         color:
@@ -446,7 +457,7 @@
         padding:
           0.5rem;
         border-left:
-          1px solid {color:Text Color};
+          1px solid {color:Page Footer Text Color};
       }
       li.like_post ol, li.like_post ul {
       }
@@ -467,6 +478,32 @@
           block !important;
         text-align:
           right;
+      }
+      div.link-information {
+        background-color:
+          {color:Link Information Background Color of Link Post};
+      }
+      div.link-thumbnail-wrapper {
+        margin-right:
+          auto;
+        margin-left:
+          auto;
+        text-align:
+          center;
+      }
+      img.link-thumbnail {
+        max-width:
+          100%;
+        text-align:
+          center;
+      }
+      blockquote {
+        margin:
+          0.5rem;
+        padding:
+          0.5rem;
+        border-left:
+          2px solid {color:One Post Area Text Color};
       }
       {CustomCSS}
     </style>
@@ -565,26 +602,26 @@
 
               {block:PermalinkPagination}
                 <span class="nav-span permalink-pagenation-nav">
-                  {block:NextPost}
-                    <a href="{NextPost}"> {lang:Next post} </a> 
-                  {/block:NextPost}
-
                   {block:PreviousPost}
                     <a href="{PreviousPost}"> {lang:Previous post} </a> 
                   {/block:PreviousPost}
+
+                  {block:NextPost}
+                    <a href="{NextPost}"> {lang:Next post} </a> 
+                  {/block:NextPost}
                 </span>
               {/block:PermalinkPagination}
 
               {block:DayPage}
                 {block:DayPagination}
                   <span class="nav-span day-pagenation-nav">
-                    {block:NextDayPage}
-                      <a href="{NextDayPage}"> {lang:Next day} <a> 
-                    {/block:NextDayPage}
-
                     {block:PreviousDayPage}
                       <a href="{PreviousDayPage}"> {lang:Previous day} <a> 
                     {/block:PreviousDayPage}
+
+                    {block:NextDayPage}
+                      <a href="{NextDayPage}"> {lang:Next day} <a> 
+                    {/block:NextDayPage}
                   </span>
                 {/block:DayPagination}
               {/block:DayPage}
@@ -701,14 +738,27 @@
             {block:Quote}
               <h3>"{Quote}"</h3>
               {block:Source}
-                <div class="source">－&nbsp;{Source}</div>
+                <div class="source">&mdash;&nbsp;{Source}</div>
               {/block:Source}
             {/block:Quote}
 
             {block:Link}
-              <h3><a href="{URL}" class="link" {Target}>{Name}</a></h3>
+              <div class="link-information">
+                {block:Host}
+                  <div class="link-host"> {Host} </div> 
+                {/block:Host}
+                <h3><a href="{URL}" class="link" {Target}>{Name}</a></h3>
+                {block:Excerpt}
+                  <div class="link-excerpt">{Excerpt}</div>
+                {/block:Excerpt}
+                {block:Author}
+                  <div class="link-author">{lang:Authors}: {Author}</div>
+                {/block:Author}
+                {block:Thumbnail}<div class="link-thumbnail-wrapper"><img class="link-thumbnail" src="{Thumbnail}" alt="{Name}"/></div>{/block:Thumbnail}
+              </div>
+
               {block:Description}
-                <div class="description">{Description}</div>
+                <div class="link-description">{Description}</div>
               {/block:Description}
             {/block:Link}
 
@@ -769,8 +819,7 @@
               {block:Answerer}
                 <div class="answer">
                   <div class="answerer">
-                    <img class="answerer-avatar" src="{AnswererPortraitURL-16}" alt="">
-                    {Answerer}
+                    <img class="answerer-avatar" src="{AnswererPortraitURL-16}" alt=""> {Answerer}
                   </div>
                   <div class="answerer-answer">{Answer}</div>
                 </div>
@@ -928,26 +977,26 @@
 
               {block:PermalinkPagination}
                 <span class="nav-span permalink-pagenation-nav">
-                  {block:NextPost}
-                    <a href="{NextPost}"> {lang:Next post} </a> 
-                  {/block:NextPost}
-
                   {block:PreviousPost}
                     <a href="{PreviousPost}"> {lang:Previous post} </a> 
                   {/block:PreviousPost}
+
+                  {block:NextPost}
+                    <a href="{NextPost}"> {lang:Next post} </a> 
+                  {/block:NextPost}
                 </span>
               {/block:PermalinkPagination}
 
               {block:DayPage}
                 {block:DayPagination}
                   <span class="nav-span day-pagenation-nav">
-                    {block:NextDayPage}
-                      <a href="{NextDayPage}"> {lang:Next day} <a> 
-                    {/block:NextDayPage}
-
                     {block:PreviousDayPage}
                       <a href="{PreviousDayPage}"> {lang:Previous day} <a> 
                     {/block:PreviousDayPage}
+
+                    {block:NextDayPage}
+                      <a href="{NextDayPage}"> {lang:Next day} <a> 
+                    {/block:NextDayPage}
                   </span>
                 {/block:DayPagination}
               {/block:DayPage}
