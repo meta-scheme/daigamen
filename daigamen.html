@@ -51,6 +51,8 @@
     <meta name="if:Show Search Navigation" content="1"/>
     <meta name="if:Show Following" content="0"/>
     <meta name="if:Show Likes" content="0"/>
+    <meta name="if:Show Powered By Tumblr" content="1"/>
+    <meta name="if:Show Install This Theme" content="1"/>
     <meta name="if:Use Well Known Japanese Fonts"   content="0"/>
     <meta name="if:Use Noto Sans Japanese"          content="0"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -400,6 +402,12 @@
           100%;
         text-align:
           center;
+      }
+      article.post.text img {
+        max-width:
+          100%;
+        height:
+          auto;
       }
       span.inline-block {
         display:
@@ -1032,8 +1040,12 @@
         {/block:GroupMembers}
 
         <div class="colophon">
-          <span class="powered-by-tumblr">{lang:Powered by Tumblr 2}</span>
-          <span class="install-this-theme"><a href="http://www.tumblr.com/theme/39771">{lang:Install this theme}</a></span>
+          {block:IfShowPoweredByTumblr}
+            <span class="powered-by-tumblr">{lang:Powered by Tumblr 2}</span>
+          {/block:IfShowPoweredByTumblr}
+          {block:IfShowInstallThisTheme}
+            <span class="install-this-theme"><a href="http://www.tumblr.com/theme/39771">{lang:Install this theme}</a></span>
+          {/block:IfShowInstallThisTheme}
         </div>
       </footer>
     </section>
